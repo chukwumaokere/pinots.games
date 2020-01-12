@@ -13,7 +13,8 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'view-homepage-or-redirect' },
+  //'GET /':                   { action: 'view-homepage-or-redirect' },
+  'GET /':                   { controller: 'ServersController', action: 'loadHomePage' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { action:   'view-faq' },
@@ -63,6 +64,6 @@ module.exports.routes = {
   'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email' },
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
-  'GET /api/v1/servers':                                    { controller: 'ServersController', action: 'getServers'} ,
-
+  'GET /api/v1/servers':                                 { controller: 'ServersController', action: 'getServers'},
+  'GET /servers/:name':                                  { controller: 'ServersController', action: 'getServer' },
 };

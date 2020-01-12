@@ -22,7 +22,7 @@ module.exports.policies = {
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
   'ServersController':{
-    'getServers': true,
+    '*': true,
   },
 
 };
