@@ -6,8 +6,12 @@
  */
 
 module.exports = {
+    
     getServers: async function (req, res) {
-        return res.send('Hi there!');
+        var query = `SELECT * FROM game_servers ORDER BY id DESC`;
+        var rawResult = await sails.sendNativeQuery(query, []);
+        sails.log(rawResult.rows);
+        return res.send(rawResult.rows);
       }
 
 };
