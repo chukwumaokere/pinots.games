@@ -24,5 +24,5 @@ module.exports.policies = {
   'ServersController':{
     '*': true,
   },
-
+  'view-servers': true,
 };

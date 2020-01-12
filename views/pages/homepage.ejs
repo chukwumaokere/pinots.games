@@ -10,7 +10,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= server.server_name %></h5>
                 <p class="card-text"><%= server.server_desc %></p>
-                <a href="#" class="btn btn-primary">Connect</a>
+                <a href="/server/<%= server.server_name %>" class="btn btn-primary">Connect</a>
               </div>
             </div>
         <% }) %>
