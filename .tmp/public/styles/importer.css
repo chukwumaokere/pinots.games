@@ -1159,3 +1159,6 @@ body {
     width: -webkit-fill-available;
   }
 }
+#pricing .text-align-center {
+  text-align: center;
+}
