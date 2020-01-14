@@ -905,6 +905,9 @@ body {
   #homepage .server-card {
     width: 18rem;
   }
+  #homepage .sub-container {
+    margin-bottom: 40px;
+  }
 }
 #welcome {
   padding-top: 75px;
