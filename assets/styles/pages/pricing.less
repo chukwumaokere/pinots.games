@@ -1,0 +1,44 @@
+#pricing {
+
+  //…
+  .container {
+    padding-top: 75px;
+  }
+
+  .price-container.show{
+    display: grid;
+    //grid-template-columns: repeat(4, auto);
+    //grid-template-rows: 366px;    
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    grid-auto-flow: row; */
+    grid-template-columns: repeat(auto-fill, 16rem);
+    grid-gap: 20px;
+  }
+  
+  .card-body{
+    align-self: center;
+    text-align: center;
+  }
+  h1{
+    font-size: 4rem;
+  }
+  .card-subtitle-desc{
+    font-size: 1.15rem;
+  }
+  @media (max-width: 767px) {
+    .price-container.show{
+      display: block;
+    }
+    .card{
+      margin-right: 0 !important;
+      margin-bottom: 40px;
+    }
+  }
+  @media (min-width: 768px){
+    .card {
+      width: -webkit-fill-available;
+    }
+  }
+}

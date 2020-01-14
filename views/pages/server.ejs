@@ -2,13 +2,24 @@
     <article class="listing">
         <div class="image" style="width:400px;"><img class="card-img-top" src="<%= serverInfo.server_image %>" alt="Card image cap"></div>
         <div class="">
-          <h3><%= serverInfo.server_name %></h3>
+          <h3><%= serverInfo.server_name %> <% if (serverInfo.id <= 2) { %> 
+                                                <span class="badge badge-primary">New</span> 
+                                            <% } %>
+                                            <% if (serverInfo.server_status == true) { %> 
+                                                <span class="badge badge-success">Online</span> 
+                                            <% } else{%>
+                                                <span class="badge badge-danger">Offline</span> 
+                                            <% } %> </h3>
           <div class="detail"><span>Game:</span> <%= serverInfo.server_type %></div>
           <div class="detail"><span>Description:</span> <%= serverInfo.server_desc %></div>
           <div class="detail"><span>Hostname:</span> <%= serverInfo.server_hostname %></div>
           <div class="detail"><span>Status:</span> <%= serverInfo.server_status %></div>
           <div class="detail"><span>Last Updated:</span> <%= serverInfo.last_updated %></div>
           <div class="detail"><span>Date Created:</span> <%= serverInfo.date_created %></div>
+          <br>
+          <% if (serverInfo.server_type == 'Rust') { %> 
+            <div class="detail"><a class="btn btn-primary" type="button" role="buton" href="steam://connect/<%= serverInfo.server_ip %>">Launch Game!</a></div>
+            <% } %>
         </div>
         <div class="end"></div>
       </article>

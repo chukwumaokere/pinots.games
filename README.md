@@ -1,4 +1,7 @@
 # pinotsgames
+### Game Servers that are fine like wine.   
+
+[![Image from Gyazo](https://i.gyazo.com/70b99c664b45d3f617a2240d28a06fe9.gif)](https://gyazo.com/70b99c664b45d3f617a2240d28a06fe9)   
 
 a [Sails v1](https://sailsjs.com) application
 

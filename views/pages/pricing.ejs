@@ -1,0 +1,62 @@
+<div id="pricing" v-cloak>
+  <div class="container">
+    <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Monthly</a>
+      </li>&nbsp;&nbsp;
+      <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Annually <span class="badge badge-success">-20%!</span></a>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="price-container tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+          <% prices.forEach(function(price){ %>
+            <% if (price.category == 'monthly') { %>
+            <div class="card server-card">
+                <div class="card-img-top">
+                  
+                </div>
+                <div class="card-body">
+                  <h4 class="card-subtitle"><%= price.name %></h4><br>
+                  <p class="card-subtitle-desc"><%= price.desc %></p>
+                  
+                 <h1 class="card-title">$<%= price.price %></h1> 
+                   <h5 class="card-text">/<%= price.term %></h5>
+                   <br>
+                   <a href="/signup" class="btn btn-primary">Get started!</a>
+                </div>
+              </div>
+              <% } %>
+            <% }) %>
+
+
+      </div>
+      <div class="price-container tab-pane fade"  id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <% prices.forEach(function(price){ %>
+            <% if (price.category == 'annual') { %>
+              <div class="card server-card">
+                  <div class="card-img-top">
+                    
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-subtitle"><%= price.name %></h4><br>
+                    <p class="card-subtitle-desc"><%= price.desc %></p>
+                    
+                   <h1 class="card-title">$<%= price.price %></h1> 
+                     <h5 class="card-text">/<%= price.term %></h5>
+                     <br>
+                     <a href="/signup" class="btn btn-primary">Get started!</a>
+                  </div>
+                </div>
+              <% } %>
+            <% }) %>
+        </div>
+    </div>
+    <br>
+    <p>Be sure to check out our <a href="/faq">FAQ</a> for answers to your additional questions!</p>
+    <p>To make sure we stay competitive in the price market, we offer annual plans to help you ensure your server will stay up as long as you need it.</p>
+    <p>*For a limited time only, you can use code <code>SAVE10</code> at checkout to take an additional $10 off your first purchase, which means you can get a free month for a 1 server set up or 2 servers for only $5!</p>
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

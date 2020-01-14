@@ -2,13 +2,20 @@
   <div class="container">
     
     <div class="sub-container">
-      <h1>Public Servers</h1>
+      <h1>Servers</h1>
       <div class="server-list">
         <% servers.forEach(function(server){ %>
-          <div class="card server-card" style="">
+          <div class="card server-card">
               <img class="card-img-top" src="<%= server.server_image %>" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title"><%= server.server_name %></h5>
+                <h5 class="card-title"><%= server.server_name %> <% if (server.id <= 2) { %> 
+                                                                      <span class="badge badge-primary">New</span> 
+                                                                  <% } %>
+                                                                  <% if (server.server_status == true) { %> 
+                                                                      <span class="badge badge-success">Online</span> 
+                                                                  <% } else{%>
+                                                                      <span class="badge badge-danger">Offline</span> 
+                                                                  <% } %> </h5>
                 <p class="card-text"><%= server.server_desc %></p>
                 <a href="/server/<%= server.server_name %>" class="btn btn-primary">Connect</a>
               </div>

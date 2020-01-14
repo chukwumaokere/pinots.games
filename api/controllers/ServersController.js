@@ -8,14 +8,14 @@
 module.exports = {
     
     getServers: async function (req, res) {
-        var query = `SELECT * FROM game_servers ORDER BY id DESC`;
+        var query = `SELECT * FROM game_servers ORDER BY id ASC`;
         var rawResult = await sails.sendNativeQuery(query, []);
         var servers = rawResult.rows;
         sails.log(servers);
         return res.send(servers);
     },
     loadHomePage: async function(req, res){
-        var query = `SELECT * FROM game_servers ORDER BY id DESC`;
+        var query = `SELECT * FROM game_servers ORDER BY id ASC`;
         var rawResult = await sails.sendNativeQuery(query, []);
         var servers = rawResult.rows;
         sails.log(servers);

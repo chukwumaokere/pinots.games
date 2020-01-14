@@ -25,4 +25,5 @@ module.exports.policies = {
     '*': true,
   },
   'view-servers': true,
+  'view-pricing': true,
 };
