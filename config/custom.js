@@ -7,6 +7,7 @@
  * For more information on custom configuration, visit:
  * https://sailsjs.com/config/custom
  */
+var locals = require('./local');
 
 module.exports.custom = {
 
@@ -52,7 +53,9 @@ module.exports.custom = {
   *                                                                         *
   **************************************************************************/
    mailgunDomain: 'mg.socialites.app',
-   mailgunSecret: 'key-fakeb183848139913858e8abd9a3',
+   mailgunSecret: locals.mailgunSecret,
+  // mailgunSecret: 'key-fakeb183848139913858e8abd9a3',
+  // mailgunSecret: require('config/local.js').mailgunSecret,
   //--------------------------------------------------------------------------
   // /\  Configure these to enable support for automated emails.
   // ||  (Important for password recovery, verification, contact form, etc.)
@@ -81,6 +84,8 @@ module.exports.custom = {
   **************************************************************************/
   // stripePublishableKey: 'pk_test_Zzd814nldl91104qor5911gjald',
   // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
+   stripePublishableKey: locals.stripePublishableKey,
+   stripeSecret: locals.stripeSecret,
   //--------------------------------------------------------------------------
   // /\  Configure these to enable support for billing features.
   // ||  (Or if you don't need billing, feel free to remove them.)

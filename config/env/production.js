@@ -18,6 +18,7 @@
  * For more best practices and tips, see:
  * https://sailsjs.com/docs/concepts/deployment
  */
+var locals = require('../local');
 
 module.exports = {
 
@@ -373,22 +374,23 @@ module.exports = {
   custom: {
     baseUrl: 'https://pinots.games',
     internalEmailAddress: 'support@socialites.app',
+    mailgunDomain: 'mg.socialites.app',
+    mailgunSecret: locals.mailgunSecret,
+    // The sender that all outgoing emails will appear to come from.
+    fromEmailAddress: 'pinotsgames@socialites.app',
+    fromName: 'The Pinots Games Team',
 
-    // mailgunDomain: 'mg.example.com',
-    // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
-    // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',
-    //--------------------------------------------------------------------------
-    // /\   OR, to avoid checking them in to version control, you might opt to
-    // ||   set sensitive credentials like these using environment variables.
-    //
-    // For example:
-    // ```
-    // sails_custom__mailgunDomain=mg.example.com
-    // sails_custom__mailgunSecret=key-prod_fake_bd32301385130a0bafe030c
-    // sails_custom__stripeSecret=sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm
-    // ```
-    //--------------------------------------------------------------------------
+    // Email address for receiving support messages & other correspondences.
+    // > If you're using the default privacy policy, this will be referenced
+    // > as the contact email of your "data protection officer" for the purpose
+    // > of compliance with regulations such as GDPR.
+    internalEmailAddress: 'support@socialites.app',
 
+    // Whether to require proof of email address ownership any time a new user
+    // signs up, or when an existing user attempts to change their email address.
+    verifyEmailAddresses: true,
+    stripePublishableKey: locals.stripePublishableKey,
+    stripeSecret: locals.stripeSecret,
   },
 
 
