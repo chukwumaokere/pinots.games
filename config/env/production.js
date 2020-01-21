@@ -49,7 +49,7 @@ module.exports = {
     ***************************************************************************/
     default: {
        adapter: 'sails-mysql',
-       url: 'mysql://web:okere9898461@localhost:3306/pinots_games',
+       url: locals.datastore_url,
       //--------------------------------------------------------------------------
       //  /\   To avoid checking it in to version control, you might opt to set
       //  ||   sensitive credentials like `url` using an environment variable.
@@ -374,7 +374,7 @@ module.exports = {
   custom: {
     baseUrl: 'https://pinots.games',
     internalEmailAddress: 'support@socialites.app',
-    mailgunDomain: 'mg.socialites.app',
+    mailgunDomain: locals.mailgunDomain,
     mailgunSecret: locals.mailgunSecret,
     // The sender that all outgoing emails will appear to come from.
     fromEmailAddress: 'pinotsgames@socialites.app',
