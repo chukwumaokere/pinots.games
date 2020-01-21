@@ -52,7 +52,7 @@ module.exports.custom = {
   * (https://app.mailgun.com/app/domains)                                   *
   *                                                                         *
   **************************************************************************/
-   mailgunDomain: 'mg.socialites.app',
+   mailgunDomain: locals.mailgunDomain,
    mailgunSecret: locals.mailgunSecret,
   // mailgunSecret: 'key-fakeb183848139913858e8abd9a3',
   // mailgunSecret: require('config/local.js').mailgunSecret,

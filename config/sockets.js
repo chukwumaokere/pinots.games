@@ -77,6 +77,6 @@ module.exports.sockets = {
   ***************************************************************************/
 
   // grant3rdPartyCookie: true,
-	onlyAllowOrigins: ["http://pinots.games", "https://pinots.games"],
+	// onlyAllowOrigins: ["http://pinots.games", "https://pinots.games"],
 
 };
