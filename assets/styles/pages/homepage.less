@@ -140,7 +140,7 @@
     }
   }
   .server-card{
-    margin-right: 40px !important;
+    //margin-right: 40px !important;
   }
   .sub-container{
     padding-top: 75px;
@@ -148,7 +148,8 @@
   .server-list{
     //display: flex;
     display: grid;
-    grid-template-columns: 288px 288px 288px;
+    //grid-template-columns: 288px 288px 288px;
+    grid-template-columns: auto auto auto auto;
     grid-auto-rows: 366px;
     grid-gap: 20px;
   }
@@ -173,6 +174,9 @@
   }
 
   @media (max-width: 991px) {
+    .server-list{
+      grid-template-columns: auto auto auto;
+    }
     .setup {
       .step {
         padding-left: 0px;
@@ -201,7 +205,8 @@
   }
   @media (min-width: 768px){
     .server-card {
-      width: 18rem;
+      //width: 18rem;
+      width: 100%;
     }
     .sub-container{
       margin-bottom: 40px;

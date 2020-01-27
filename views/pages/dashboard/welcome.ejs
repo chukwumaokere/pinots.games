@@ -2,19 +2,60 @@
   <div class="container">
     <h1>Welcome!</h1>
     <hr/>
-    <p>This is a page that only logged-in people can visit. Don't you feel special? Try clicking on a button below to do some things you can't do when you're logged out.</p>
+    <p>This is a page that only logged-in people can visit. Don't you feel special? To create a game server, press "Add Server" below.</p>
     <div class="buttons">
-      <a class="btn btn-info" href="/account/profile">Update my email</a>
-      <button class="btn btn-outline-info ml-2" @click="clickOpenExampleModalButton()">Open a modal</button>
+      <button class="btn btn-info ml-2" @click="clickOpenExampleModalButton()">Add Server</button>
+      <a class="btn btn-outline-info" href="/account/profile">Update my email</a>
+    </div>
+    <br><br>
+    <h1>My Servers</h1>
+    <hr/>
+    <div class="server-list">
+    <% servers.forEach(function(server){ %>
+      <div class="card server-card">
+          <img class="card-img-top" src="<%= server.server_image %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= server.server_name %> <% if (server.id <= 2) { %> 
+                                                                  <span class="badge badge-primary">New!</span> 
+                                                              <% } %>
+                                                              <% if (server.server_status == true) { %> 
+                                                                  <span class="badge badge-success">Online</span> 
+                                                              <% } else{%>
+                                                                  <span class="badge badge-danger">Offline</span> 
+                                                              <% } %> </h5>
+            <p class="card-text"><%= server.server_desc %></p>
+            <a href="/server/<%= server.server_name %>" class="btn btn-primary">Connect</a>
+          </div>
+        </div>
+    <% }) %>
     </div>
   </div>
 
   <router-view></router-view>
 
+  <modal class="example-modal" v-if="modal==='example'" @close="closeExampleModal()" v-cloak>
+    <div class="modal-header">
+      <h2 class="modal-title">Add a New Game Server</h2>
+      <p>Enter the configuration for your new game server</p>
+      <hr/>
+      <button type="button" class="modal-close-button" data-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <h5 class="section-heading">Server information</h5>
+      <span><p>Server Name: </p> <input id="servername"></input></span>
+      <span><p>Server Game: </p> <input id="servergame"></input></span>
+      <span><p>Server Description: </p> <input id="serverdesc"></input></span>
+    </div>
+    <div class="modal-footer flex-row-reverse justify-content-between">
+      <button type="button" data-dismiss="modal" class="btn btn-info"  @click="createServerInquiry()">Create!</button>
+      <button type="button" data-dismiss="modal" class="btn btn-outline-info">Close</button>
+    </div>
+  </modal>
+
   <!--  ╔═╗═╗ ╦╔═╗╔╦╗╔═╗╦  ╔═╗  ┌┬┐┌─┐┌┬┐┌─┐┬
         ║╣ ╔╩╦╝╠═╣║║║╠═╝║  ║╣   ││││ │ ││├─┤│
         ╚═╝╩ ╚═╩ ╩╩ ╩╩  ╩═╝╚═╝  ┴ ┴└─┘─┴┘┴ ┴┴─┘  -->
-  <modal class="example-modal" v-if="modal==='example'" @close="closeExampleModal()" v-cloak>
+  <!-- <modal class="example-modal" v-if="modal==='example'" @close="closeExampleModal()" v-cloak>
     <div class="modal-header">
       <h2 class="modal-title">Example modal</h2>
       <p>At your leisure, please peruse this excerpt from a whale of a tale.</p>
@@ -97,6 +138,6 @@
       <button type="button" data-dismiss="modal" class="btn btn-info">Close</button>
       <button type="button" data-dismiss="modal" class="btn btn-outline-info">Cancel</button>
     </div>
-  </modal>
+  </modal> -->
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
